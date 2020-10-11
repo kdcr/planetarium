@@ -375,7 +375,10 @@ let xCamPos = 0,
 
 const varToString = varObj => Object.keys(varObj)[0]
 
-searchButton.addEventListener('click', function() { focusedBody = bodies[searchField.value] });
+searchButton.addEventListener('click', function() {
+    if (bodies[searchField.value] != undefined)
+        focusedBody = bodies[searchField.value]
+});
 
 // Astronomical boddies definition
 let sol, solSur, solSur2, solSur3,
@@ -388,13 +391,6 @@ let sol, solSur, solSur2, solSur3,
     saturn, mimas, enceladus, tethys, dione, rhea, titan, hyperion, iapetus, saturnRings,
     uranus, miranda, ariel, umbriel, titania, oberon,
     neptune, triton;
-
-const illo = new Zdog.Illustration({
-    element: '.zdog-canvas',
-    dragRotate: true,
-    resize: true,
-    zoom: 0.3
-});
 
 let bodies = {
     sol,
@@ -436,6 +432,15 @@ let bodies = {
     neptune,
     triton
 };
+
+
+const illo = new Zdog.Illustration({
+    element: '.zdog-canvas',
+    dragRotate: true,
+    resize: true,
+    zoom: 0.3
+});
+
 
 createPlanets();
 
