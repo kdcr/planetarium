@@ -59,6 +59,16 @@ body {
 }
 
 #zoomRange {
-    position: absolute;
     z-index: 2;
+}
+
+#searchContainer {
+    z-index: 2;
+}
+
+#uiContainer {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
