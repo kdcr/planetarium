@@ -1,4 +1,4 @@
-ringColors = ['#000', '#cc6600', '#994d00', '#994d00', '#994d00', '#994d00', '#4d2e00'];
+ringColors = ['#706355', '#847364', '#aa9484', '#c9a47f', '#9b7e64', '#7c6452', '#d6ae8a', '#605448'];
 
 class Star {
     constructor() {
@@ -10,28 +10,28 @@ class Star {
     element = {};
 }
 
-function createSol() {
+function createSun() {
     let coreSize = 100;
 
-    bodies.sol = new Zdog.Shape({
+    bodies.sun = new Zdog.Shape({
         addTo: illo,
         stroke: coreSize + 90,
         color: '#993d10',
     });
 
-    bodies.solSur = new Zdog.Shape({
+    bodies.sunSur = new Zdog.Shape({
         addTo: illo,
         stroke: coreSize + 100,
         color: '#ff660050',
     });
 
-    bodies.solSur2 = new Zdog.Shape({
+    bodies.sunSur2 = new Zdog.Shape({
         addTo: illo,
         stroke: coreSize + 110,
         color: '#ffa36650',
     });
 
-    bodies.solSur3 = new Zdog.Shape({
+    bodies.sunSur3 = new Zdog.Shape({
         addTo: illo,
         stroke: coreSize + 120,
         color: '#ffa36650',
@@ -66,7 +66,7 @@ function createEarth() {
 
     bodies.moon = new Zdog.Shape({
         addTo: illo,
-        stroke: 2,
+        stroke: 3,
         translate: { x: 310 },
         color: '#808080',
     });
@@ -111,30 +111,30 @@ function createJupiter() {
 
     bodies.io = new Zdog.Shape({
         addTo: illo,
-        stroke: 2,
+        stroke: 4,
         translate: { x: 400 },
-        color: '#993d10',
+        color: '#fff2a7',
     });
 
     bodies.europa = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
         translate: { x: 400 },
-        color: '#993d10',
+        color: '#b6c9c5',
     });
 
     bodies.ganymede = new Zdog.Shape({
         addTo: illo,
-        stroke: 2,
+        stroke: 3,
         translate: { x: 400 },
-        color: '#993d10',
+        color: '#8b7c78',
     });
 
     bodies.callisto = new Zdog.Shape({
         addTo: illo,
-        stroke: 2,
+        stroke: 3,
         translate: { x: 400 },
-        color: '#993d10',
+        color: '#996e5b',
     });
 }
 
@@ -151,73 +151,65 @@ function createSaturn() {
     bodies.mimas = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.enceladus = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.tethys = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.dione = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.rhea = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.titan = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#d4af82',
     });
 
     bodies.hyperion = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.iapetus = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
-
-
-    /*saturn2 = new Zdog.Shape({
-        addTo: illo,
-        stroke: 85,
-        color: '#ffffff50',
-    });*/
-
-
-    for (let index = 0; index < 30; index = index + 3) {
-        let minD = 35;
+    let ringSeparation = 10;
+    let minD = 35;
+    for (let index = 0; index <= 10; index++) {
         let color = ringColors[Math.round(Math.random() * ringColors.length)];
         bodies.saturnRings.push(new Zdog.Ellipse({
             addTo: illo,
-            diameter: minD + index,
+            diameter: minD + ringSeparation,
             stroke: 1,
             color: color,
             quarters: 1,
         }));
         bodies.saturnRings.push(new Zdog.Ellipse({
             addTo: illo,
-            diameter: minD + index,
+            diameter: minD + ringSeparation,
             stroke: 1,
             rotate: { x: Math.PI },
             color: color,
@@ -225,7 +217,7 @@ function createSaturn() {
         }));
         bodies.saturnRings.push(new Zdog.Ellipse({
             addTo: illo,
-            diameter: minD + index,
+            diameter: minD + ringSeparation,
             stroke: 1,
             rotate: { y: Math.PI },
             color: color,
@@ -233,12 +225,16 @@ function createSaturn() {
         }));
         bodies.saturnRings.push(new Zdog.Ellipse({
             addTo: illo,
-            diameter: minD + index,
+            diameter: minD + ringSeparation,
             stroke: 1,
             rotate: { z: Math.PI },
             color: color,
             quarters: 1,
         }));
+
+        ringSeparation++;
+        ringSeparation++;
+        ringSeparation++;
 
     }
 
@@ -250,44 +246,59 @@ function createUranus() {
     bodies.uranus = new Zdog.Shape({
         addTo: illo,
         stroke: 15,
-        color: '#993d10',
+        color: '#6895a9',
     });
 
     bodies.miranda = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.ariel = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.umbriel = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.titania = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
     bodies.oberon = new Zdog.Shape({
         addTo: illo,
         stroke: 2,
-        color: '#993d10',
+        color: '#575756',
     });
 
 }
 
+function createNeptune() {
+
+    bodies.neptune = new Zdog.Shape({
+        addTo: illo,
+        stroke: 15,
+        color: '#4175a9',
+    });
+
+    bodies.triton = new Zdog.Shape({
+        addTo: illo,
+        stroke: 2,
+        color: '#c3b097',
+    });
+}
+
 function createPlanets() {
 
-    createSol();
+    createSun();
 
     createMercury();
 
@@ -302,6 +313,8 @@ function createPlanets() {
     createSaturn();
 
     createUranus();
+
+    createNeptune();
 
 }
 
@@ -381,7 +394,7 @@ searchButton.addEventListener('click', function() {
 });
 
 // Astronomical boddies definition
-let sol, solSur, solSur2, solSur3,
+let sun, sunSur, sunSur2, sunSur3,
     mercury,
     venus,
     earth, moon,
@@ -391,12 +404,11 @@ let sol, solSur, solSur2, solSur3,
     saturn, mimas, enceladus, tethys, dione, rhea, titan, hyperion, iapetus, saturnRings,
     uranus, miranda, ariel, umbriel, titania, oberon,
     neptune, triton;
-
 let bodies = {
-    sol,
-    solSur,
-    solSur2,
-    solSur3,
+    sun,
+    sunSur,
+    sunSur2,
+    sunSur3,
     mercury,
     venus,
     earth,
@@ -444,7 +456,7 @@ const illo = new Zdog.Illustration({
 
 createPlanets();
 
-let focusedBody = bodies.sol;
+let focusedBody = bodies.sun;
 
 function animate() {
     illo.updateRenderGraph();
@@ -455,10 +467,10 @@ animate();
 
 setInterval(function() {
     let time = new Date().getTime();
-    translatePlanet(bodies.sol, 0, 0, 0, 0);
-    translatePlanet(bodies.solSur, 0, 0, 0, 0);
-    translatePlanet(bodies.solSur2, 0, 0, 0, 0);
-    translatePlanet(bodies.solSur3, 0, 0, 0, 0);
+    translatePlanet(bodies.sun, 0, 0, 0, 0);
+    translatePlanet(bodies.sunSur, 0, 0, 0, 0);
+    translatePlanet(bodies.sunSur2, 0, 0, 0, 0);
+    translatePlanet(bodies.sunSur3, 0, 0, 0, 0);
 
     translatePlanet(bodies.mercury, 0, 0, 200, 0.0008 * time);
     translatePlanet(bodies.venus, 0, 0, 250, -0.0004 * time);
@@ -471,34 +483,40 @@ setInterval(function() {
     translateSatellite(bodies.phobos, bodies.mars, 5, 0.001 * time);
 
     /**Jupiter**/
-    translatePlanet(bodies.jupiter, 0, 0, 550, 0.0001 * time);
-    translateSatellite(bodies.io, bodies.jupiter, 15, 0.001 * time);
-    translateSatellite(bodies.europa, bodies.jupiter, 25, 0.001 * time);
-    translateSatellite(bodies.ganymede, bodies.jupiter, 30, 0.001 * time);
-    translateSatellite(bodies.callisto, bodies.jupiter, 50, 0.001 * time);
+    translatePlanet(bodies.jupiter, 0, 0, 550, 0.00001 * time);
+    translateSatellite(bodies.io, bodies.jupiter, 20, 0.001 * time);
+    translateSatellite(bodies.europa, bodies.jupiter, 25, 0.0008 * time);
+    translateSatellite(bodies.ganymede, bodies.jupiter, 40, 0.0006 * time);
+    translateSatellite(bodies.callisto, bodies.jupiter, 50, 0.0005 * time);
 
     /**Saturn**/
-    translatePlanet(bodies.saturn, 0, 0, 750, 0.0001 * time);
+    translatePlanet(bodies.saturn, 0, 0, 750, 0.00005 * time);
     bodies.saturnRings.forEach(element => {
         translateSatellite(element, bodies.saturn, 0, 0);
     });
     translateSatellite(bodies.mimas, bodies.saturn, 45, 0.001 * time);
-    translateSatellite(bodies.enceladus, bodies.saturn, 50, 0.001 * time);
-    translateSatellite(bodies.tethys, bodies.saturn, 53, 0.001 * time);
-    translateSatellite(bodies.dione, bodies.saturn, 58, 0.001 * time);
-    translateSatellite(bodies.rhea, bodies.saturn, 61, 0.001 * time);
+    translateSatellite(bodies.enceladus, bodies.saturn, 50, 0.0009 * time);
+    translateSatellite(bodies.tethys, bodies.saturn, 53, 0.0006 * time);
+    translateSatellite(bodies.dione, bodies.saturn, 58, 0.0008 * time);
+    translateSatellite(bodies.rhea, bodies.saturn, 61, 0.0007 * time);
     translateSatellite(bodies.titan, bodies.saturn, 65, 0.001 * time);
-    translateSatellite(bodies.hyperion, bodies.saturn, 70, 0.001 * time);
-    translateSatellite(bodies.iapetus, bodies.saturn, 72, 0.001 * time);
+    translateSatellite(bodies.hyperion, bodies.saturn, 70, 0.0008 * time);
+    translateSatellite(bodies.iapetus, bodies.saturn, 72, 0.0005 * time);
 
     /**Uranus**/
-    translatePlanet(bodies.uranus, 0, 0, 950, 0.0001 * time);
+    translatePlanet(bodies.uranus, 0, 0, 950, 0.00002 * time);
     translateSatellite(bodies.miranda, bodies.uranus, 10, 0.001 * time);
-    translateSatellite(bodies.ariel, bodies.uranus, 15, 0.001 * time);
-    translateSatellite(bodies.umbriel, bodies.uranus, 20, 0.001 * time);
-    translateSatellite(bodies.titania, bodies.uranus, 25, 0.001 * time);
-    translateSatellite(bodies.oberon, bodies.uranus, 30, 0.001 * time);
+    translateSatellite(bodies.ariel, bodies.uranus, 15, 0.0008 * time);
+    translateSatellite(bodies.umbriel, bodies.uranus, 20, 0.0007 * time);
+    translateSatellite(bodies.titania, bodies.uranus, 25, 0.0009 * time);
+    translateSatellite(bodies.oberon, bodies.uranus, 30, 0.0002 * time);
+
+    /**Neptune**/
+    translatePlanet(bodies.neptune, 0, 0, 1000, 0.000008 * time);
+    translateSatellite(bodies.triton, bodies.neptune, 10, 0.001 * time);
 
     illo.zoom = zoomRange.value * 0.1;
     lookAtBody(focusedBody);
 }, 1);
+
+focusedBody = bodies.uranus;
