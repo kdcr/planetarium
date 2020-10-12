@@ -518,5 +518,3 @@ setInterval(function() {
     illo.zoom = zoomRange.value * 0.1;
     lookAtBody(focusedBody);
 }, 1);
-
-focusedBody = bodies.uranus;
