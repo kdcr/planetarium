@@ -155,5 +155,3 @@ setInterval(function() {
 
     lookAtBody(focusedBody);
 }, 1);
-focusedBody = bodies.earth;
-zoomRange.value = 250;
