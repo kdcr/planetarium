@@ -27,9 +27,9 @@ function translatePlanet(planet, a, b, radius, theta) {
 }
 
 function translatePlanetFeature(planet, feature, offset) {
-    const x = planet.translate.x + offset[0];
-    const y = planet.translate.y + offset[1];
-    const z = planet.translate.y + offset[2];
+    let x = planet.translate.x + offset[0];
+    let y = planet.translate.y + offset[1];
+    const z = offset[2];
 
     feature.translate = { x: x, y: y, z: z };
 }
@@ -49,9 +49,6 @@ var handleScroll = function(evt) {
     else
         zoomRange.value--;
 
-    console.log(direction);
-
-    // Use the value as you will
 };
 
 const stars = [];
