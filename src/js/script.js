@@ -41,6 +41,19 @@ function translateSatellite(satellite, planet, radius, theta) {
     satellite.translate = { x: x, y: y };
 }
 
+var handleScroll = function(evt) {
+    if (!evt) evt = event;
+    const direction = (evt.detail < 0 || evt.wheelDelta > 0) ? 1 : -1;
+    if (direction > 0)
+        zoomRange.value++;
+    else
+        zoomRange.value--;
+
+    console.log(direction);
+
+    // Use the value as you will
+};
+
 const stars = [];
 
 const zoomRange = document.querySelector('#zoomRange');
@@ -55,16 +68,6 @@ searchButton.addEventListener('click', function() {
         focusedBody = searchedBody;
 });
 
-var handleScroll = function(evt) {
-    if (!evt) evt = event;
-    const direction = (evt.detail < 0 || evt.wheelDelta > 0) ? 1 : -1;
-    if (direction > 0)
-        zoomRange.value++;
-    else
-        zoomRange.value--;
-
-    // Use the value as you will
-};
 
 let xCamPos = 0;
 let yCamPos = 0;
@@ -114,7 +117,7 @@ setInterval(function() {
 
     /** Mars**/
     translatePlanet(bodies.mars, 0, 0, 360, 0.0002 * time);
-    translateSatellite(bodies.deimos, bodies.mars, 9, 0.001 * time);
+    translateSatellite(bodies.deimos, bodies.mars, 9, 0.002 * time);
     translateSatellite(bodies.phobos, bodies.mars, 5, 0.001 * time);
 
     /** Jupiter**/
