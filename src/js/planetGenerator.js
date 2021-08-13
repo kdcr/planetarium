@@ -20,7 +20,7 @@ export class PlanetGenerator {
             uranus, miranda, ariel, umbriel, titania, oberon,
             neptune, triton;
 
-        this.bodies = {
+            this.bodies = {
             sun,
             sunSur,
             sunSur2,

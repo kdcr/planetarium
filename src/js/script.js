@@ -27,8 +27,8 @@ function translatePlanet(planet, a, b, radius, theta) {
 }
 
 function translatePlanetFeature(planet, feature, offset) {
-    let x = planet.translate.x + offset[0];
-    let y = planet.translate.y + offset[1];
+    const x = planet.translate.x + offset[0];
+    const y = planet.translate.y + offset[1];
     const z = offset[2];
 
     feature.translate = { x: x, y: y, z: z };
@@ -55,12 +55,22 @@ const stars = [];
 
 const zoomRange = document.querySelector('#zoomRange');
 const searchField = document.querySelector('#bodySearch');
+const selectField = document.querySelector('#bodySelect');
 const searchButton = document.querySelector('#bodySearchBtn');
 document.querySelector(".zdog-canvas").addEventListener('DOMMouseScroll', handleScroll, false); // for Firefox
 document.querySelector(".zdog-canvas").addEventListener('mousewheel', handleScroll, false); // for everyone else
 
+selectField.addEventListener('change', function() {
+    searchField.value="";
+});
+
+searchField.addEventListener('input', function() {
+    if (searchField.value !== "")
+        selectField.value = "";
+});
+
 searchButton.addEventListener('click', function() {
-    const searchedBody = bodies[searchField.value];
+    const searchedBody = selectField.value !== "" ? bodies[selectField.value] : bodies[searchField.value.toLowerCase()];
     if (searchedBody !== undefined)
         focusedBody = searchedBody;
 });
@@ -69,7 +79,7 @@ searchButton.addEventListener('click', function() {
 let xCamPos = 0;
 let yCamPos = 0;
 
-//setInterval(function() { cycleStars(); }, 100);
+// setInterval(function() { cycleStars(); }, 100);
 
 const illo = new Zdog.Illustration({
     element: '.zdog-canvas',
